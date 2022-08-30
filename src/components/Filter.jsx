@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { DESATURATED_DARK_CYAN, FILTER_TABLET_BG, FONT_WEIGHT_BOLD } from '../constants/styles';
 
-export const FilterButton = styled.button`
+const FilterButton = styled.button`
     color: ${DESATURATED_DARK_CYAN};
     background-color: ${FILTER_TABLET_BG};
 
@@ -17,10 +17,17 @@ export const FilterButton = styled.button`
 
     transition: color .3s ease, background-color .3s ease;
 
-    &:hover {
+    &:hover, &:focus-visible {
         background-color: ${DESATURATED_DARK_CYAN};
         color: ${FILTER_TABLET_BG};
+        ${({ removable }) => removable && `
+            &::after {
+                content: 'X';
+                margin: .5rem;
+            }
+        `}
     }
+
 `
 
 function Filter({ filterWord, addFilterTerm }) {
@@ -30,3 +37,5 @@ function Filter({ filterWord, addFilterTerm }) {
 }
 
 export default Filter;
+export { FilterButton };
+

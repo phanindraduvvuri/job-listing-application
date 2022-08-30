@@ -20,6 +20,8 @@ const Job = styled.div`
 
     position: relative;
     border-left: ${props => props.featured ? `5px solid ${DESATURATED_DARK_CYAN}` : ''};
+    box-shadow: 0 0 10px rgb(91 164 164 / .3);
+
 `
 
 const Logo = styled.img`

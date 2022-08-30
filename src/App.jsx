@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import Background from './components/Background';
+import FilterInput from './components/FilterInput';
 import JobCard from './components/JobCard';
 
 import data from './data.json';
+
+
+const JobList = styled.div``;
 
 
 function App() {
@@ -21,10 +26,22 @@ function App() {
   }, [])
 
   const addFilterTerm = (term) => {
-    setFilterSet(prevFilter => (
-      new Set(prevFilter).add(term)
-    ))
+    setFilterSet(prevFilter => {
+      const newSet = new Set(prevFilter);
+      newSet.add(term);
 
+      return newSet;
+    })
+
+  }
+
+  const removeFilterTerm = (term) => {
+    setFilterSet(prevFilter => {
+      const newSet = new Set(prevFilter);
+      newSet.delete(term);
+
+      return newSet;
+    });
   }
 
   const jobElements = jobData
@@ -51,7 +68,11 @@ function App() {
   return (
     <div className="App">
       <Background />
-      {jobElements}
+      {filterSet.size !== 0 && <FilterInput filterSet={filterSet} setFilterSet={setFilterSet} removeFilterTerm={removeFilterTerm} />}
+
+      <JobList>
+        {jobElements}
+      </JobList>
     </div>
   )
 }
