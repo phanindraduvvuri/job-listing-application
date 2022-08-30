@@ -9,13 +9,13 @@ const FilterButton = styled.button`
 
     border: none;
     border-radius: 5px;
-    margin-inline: .5rem;
+    margin: .5rem;
     padding: 0.5rem;
     cursor: pointer;
     font-weight: ${FONT_WEIGHT_BOLD};
     font-size: 1.4rem;
 
-    transition: color .3s ease, background-color .3s ease;
+    transition: all .3s ease-out;
 
     &:hover, &:focus-visible {
         background-color: ${DESATURATED_DARK_CYAN};

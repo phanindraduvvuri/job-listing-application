@@ -14,12 +14,12 @@ const BgImageContainer = styled.div`
 
 function Background() {
     const [matches, setMatches] = useState(
-        window.matchMedia("(min-width: 324px)").matches
+        window.matchMedia("(min-width: 375px)").matches
     )
 
     useEffect(() => {
         window
-            .matchMedia("(min-width: 324px)")
+            .matchMedia("(min-width: 375px)")
             .addEventListener('change', e => setMatches(e.matches));
     }, []);
     return (

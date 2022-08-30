@@ -100,8 +100,7 @@ const Hr = styled.hr`
     }
 `
 
-function JobCard({ logo, company, position, postedAt, contract, location, isNew, isFeatured, role, level, languages, tools, filterSet, addFilterTerm, filterTerms, setFilterTerms }) {
-    // setFilterTerms([...languages, ...tools, role, level])
+function JobCard({ logo, company, position, postedAt, contract, location, isNew, isFeatured, addFilterTerm, filterTerms, }) {
 
     const filterButtons = filterTerms
         .map((filterTerm, index) => (
