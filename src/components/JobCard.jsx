@@ -98,12 +98,17 @@ const Hr = styled.hr`
     }
 `
 
-function JobCard({ logo, company, position, postedAt, contract, location, isNew, isFeatured, role, level, languages, tools }) {
-    const filterTerms = [...languages, ...tools, role, level]
+function JobCard({ logo, company, position, postedAt, contract, location, isNew, isFeatured, role, level, languages, tools, filterSet, addFilterTerm, filterTerms, setFilterTerms }) {
+    // setFilterTerms([...languages, ...tools, role, level])
 
-    const filterButtons = filterTerms.map((filterTerm, index) => (
-        <Filter key={index} filterWord={filterTerm} />
-    ))
+    const filterButtons = filterTerms
+        .map((filterTerm, index) => (
+            <Filter
+                key={index}
+                filterWord={filterTerm}
+                addFilterTerm={addFilterTerm}
+            />
+        ))
     return (
         <Job featured={isFeatured === true}>
             <Logo src={logo} alt="Company Logo" />

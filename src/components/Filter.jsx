@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { DESATURATED_DARK_CYAN, FILTER_TABLET_BG, FONT_WEIGHT_BOLD } from '../constants/styles';
 
-const FilterButton = styled.button`
+export const FilterButton = styled.button`
     color: ${DESATURATED_DARK_CYAN};
     background-color: ${FILTER_TABLET_BG};
 
@@ -23,9 +23,9 @@ const FilterButton = styled.button`
     }
 `
 
-function Filter({ filterWord }) {
+function Filter({ filterWord, addFilterTerm }) {
     return (
-        <FilterButton>{filterWord}</FilterButton>
+        <FilterButton onClick={() => addFilterTerm(filterWord)}>{filterWord}</FilterButton>
     )
 }
 
